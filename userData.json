@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "gender": "male",
+    "name": "Sohel",
+    "contact": "01596545578",
+    "address": "Bogura",
+    "photoUrl": "https://unsplash.com/photos/n4KewLKFOZw?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
+  },
+  {
+    "id": 2,
+    "gender": "male",
+    "name": "Rana",
+    "contact": "01596545938",
+    "address": "Chadpur",
+    "photoUrl": "https://unsplash.com/photos/n4KewLKFOZw?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
+  }
+]
