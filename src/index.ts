@@ -8,8 +8,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// home route
 app.get("/", (_req, res) => {
-  res.status(200).send("Welcome to the Random API");
+  res.status(200).send("Welcome to the Random-User-API");
+});
+
+// Route Not Found
+app.all("*", (_req, res) => {
+  res.status(404).send("404 Not Found");
 });
 
 app.listen(port, () => {
