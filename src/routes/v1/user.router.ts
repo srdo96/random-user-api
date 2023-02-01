@@ -5,5 +5,6 @@ import rateLimiter from "../../middleware/limiter";
 const route = express.Router();
 route.get("/random", userController.getRandomUser);
 route.get("/all", rateLimiter, userController.getAllUser);
+route.post("/save", userController.saveUser);
 
 export default route;
