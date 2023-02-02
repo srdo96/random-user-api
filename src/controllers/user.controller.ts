@@ -120,3 +120,30 @@ export const updateUserInfo = async (
     }
   }
 };
+
+export const deleteUser = async (
+  req: Request<{ userId: string }>,
+  res: Response
+) => {
+  const userId = parseInt(req.params.userId);
+  if (isNaN(userId)) {
+    res.status(400).send("User ID must be a valid integer");
+  }
+  try {
+    const allUserDataString = await fs.promises.readFile(userDataPath, "utf-8");
+    const allUser: UserData[] = JSON.parse(allUserDataString);
+    const index = allUser.findIndex((user) => user.id === userId);
+    if (index === -1) {
+      res.status(404).send("User Not Found");
+    }
+    const newUserList = allUser.filter((user) => user.id !== userId);
+    await fs.promises.writeFile(userDataPath, JSON.stringify(newUserList));
+    res.status(200).send("Delete successfully");
+  } catch (error: unknown) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") {
+      res.status(404).send("File Not Found");
+    } else {
+      res.status(500).send("Unexpected Error");
+    }
+  }
+};

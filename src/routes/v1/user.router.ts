@@ -7,5 +7,6 @@ route.get("/random", userController.getRandomUser);
 route.get("/all", rateLimiter, userController.getAllUser);
 route.post("/save", userController.saveUser);
 route.patch("/update/:userId", userController.updateUserInfo);
+route.delete("/delete/:userId", userController.deleteUser);
 
 export default route;
